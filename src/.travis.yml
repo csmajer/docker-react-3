@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t csmajer/docker-react-3 -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true csmajer/docker-react-3 npm run test
